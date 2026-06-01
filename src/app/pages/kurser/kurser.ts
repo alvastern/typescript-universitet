@@ -5,11 +5,12 @@ import { KurserService } from '../../services/kurser-service';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
 import { Ramschema } from '../../services/ramschema-service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-kurser',
   standalone: true,
-  imports: [Header, CommonModule],
+  imports: [Header, CommonModule, FormsModule],
   templateUrl: './kurser.html',
   styleUrl: './kurser.scss'
 })
@@ -25,6 +26,8 @@ export class Kurser {
   courses: Course[] = [];
 
   searchTerm = '';
+  selectedSubject = '';
+  sortField = '';
 
   // Hämtar kurser när komponenten initieras
   ngOnInit() {
@@ -42,5 +45,39 @@ export class Kurser {
   // Funktion för att lägga till en kurs i ramschemat
   addCourse(course: Course) {
     this.ramschemaService.addCourse(course);
+  }
+
+  // Get för att filtrera kurser baserat på sökterm
+  get filteredCourses() {
+    return this.courses.filter(course => {
+      const searchMatch =
+        course.courseName.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+        course.courseCode.toLowerCase().includes(this.searchTerm.toLowerCase());
+
+      const subjectMatch =
+        !this.selectedSubject ||
+        course.subject === this.selectedSubject;
+
+      return searchMatch && subjectMatch;
+    });
+  }
+
+  // Get för att filtrera kurser baserat på ämne
+  get subjects() {
+    return [...new Set(
+      this.courses.map(course => course.subject)
+    )];
+  }
+
+  // Funktion för att sortera kurser baserat på valt fält
+  sortCourses(field: string) {
+    this.sortField = field;
+    this.courses.sort((a: any, b: any) => {
+
+      if (a[field] < b[field]) return -1;
+      if (a[field] > b[field]) return 1;
+
+      return 0;
+    });
   }
 }
