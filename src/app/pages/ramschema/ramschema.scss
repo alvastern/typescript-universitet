@@ -1,0 +1,78 @@
+main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 7.5rem;
+}
+
+#rubrik-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 1rem 0 0 0;
+}
+
+.total-points {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+}
+
+#ramschema-list {
+    margin: 0 auto;
+}
+
+#ramschema-list h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.course-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.course-info h4 {
+    margin: 0 0 0.4rem 0;
+    font-size: 1.2rem;
+}
+
+.course-info p {
+    margin: 0;
+    color: #555;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #218838;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+
+}

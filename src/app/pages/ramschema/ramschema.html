@@ -1,15 +1,23 @@
 <app-header></app-header>
 
 <main>
-    <h2>Totalt: {{ totalPoints }} hp</h2>
+    <section id="rubrik-flex">
+        <div>
+            <h2>Ditt ramschema</h2>
+            <p class="total-points">Totalt: {{ totalPoints }} hp</p>
+        </div>
+    </section>
 
-    <p *ngIf="message" class="success-message">{{ message }}</p>
+    <section id="ramschema-list">
+        <p *ngIf="message" class="success-message">{{ message }}</p>
 
-    <article *ngFor="let course of courses">
-        <h3>{{ course.courseName }}</h3>
-        <p>{{ course.courseCode }}</p>
-        <p>{{ course.points }} hp</p>
+        <article class="course-card" *ngFor="let course of courses">
+            <div class="course-info">
+                <h4>{{ course.courseName }}</h4>
+                <p>{{ course.courseCode }} · {{ course.points }} hp</p>
+            </div>
 
-        <button (click)="removeCourse(course)">Ta bort</button>
-    </article>
+            <button (click)="removeCourse(course)">Ta bort</button>
+        </article>
+    </section>
 </main>

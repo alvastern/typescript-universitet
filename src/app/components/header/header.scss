@@ -1,0 +1,33 @@
+header {
+    padding: 1rem 7.5rem;
+    background: linear-gradient(90deg, #000000, #1e90ff);
+    color: white;
+
+    nav ul {
+        display: flex;
+        gap: 5rem;
+        list-style: none;
+        padding: 0;
+    }
+
+    a {
+        color: white;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
+
+#header-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width: 1024px) {
+
+}
