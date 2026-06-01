@@ -3,4 +3,6 @@
 <div *ngFor="let course of courses">
     <h3>{{ course.courseName }}</h3>
     <p>{{ course.courseCode }}</p>
+
+    <button (click)="addCourse(course)">Lägg till</button>
 </div>

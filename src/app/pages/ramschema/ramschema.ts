@@ -1,10 +1,29 @@
 import { Component } from '@angular/core';
-import { Header } from "../../components/header/header";
+import { Header } from '../../components/header/header';
+import { CommonModule } from '@angular/common';
+import { Ramschema as RamschemaService } from '../../services/ramschema-service';
+import { Course } from '../../models/kurser-model';
 
 @Component({
   selector: 'app-ramschema',
-  imports: [Header],
+  standalone: true,
+  imports: [Header, CommonModule],
   templateUrl: './ramschema.html',
-  styleUrl: './ramschema.scss',
+  styleUrl: './ramschema.scss'
 })
-export class Ramschema {}
+
+export class Ramschema {
+  constructor(private ramschemaService: RamschemaService) {}
+
+  courses: Course[] = [];
+
+  ngOnInit() {
+    this.courses = this.ramschemaService.getCourses();
+  }
+
+  // Funktion för att ta bort en kurs från ramschemat
+  removeCourse(courseCode: string) {
+    this.ramschemaService.removeCourse(courseCode);
+    this.courses = this.ramschemaService.getCourses();
+  }
+}
