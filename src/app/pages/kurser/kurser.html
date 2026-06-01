@@ -3,29 +3,44 @@
 <main>
     <h2>Kurser</h2>
 
-    <section>
-        <input type="text" placeholder="Sök kurs..." [(ngModel)]="searchTerm">
-        <select [(ngModel)]="selectedSubject">
-            <option value="">Alla ämnen</option>
-            <option *ngFor="let subject of subjects" [value]="subject">
-                {{ subject }}
-            </option>
-        </select>
+    <section id="hitta-kurs">
+        <div>
+            <input type="text" placeholder="Sök kurs..." [(ngModel)]="searchTerm">
 
-        <article>
-            <p>Antal träffar: {{ filteredCourses.length }}</p>
+            <select [(ngModel)]="selectedSubject">
+                <option value="">Alla ämnen</option>
+                <option *ngFor="let subject of subjects" [value]="subject">
+                    {{ subject }}
+                </option>
+            </select>
+        </div>
+
+        <article id="sortera-kurser">
+            <h3>Sortera efter: </h3>
+
+            <div>
+                <button (click)="sortCourses('courseCode')">Kurskod</button>
+                <button (click)="sortCourses('courseName')">Kursnamn</button>
+                <button (click)="sortCourses('points')">Poäng</button>
+                <button (click)="sortCourses('subject')">Ämne</button>
+            </div>
         </article>
 
-        <button (click)="sortCourses('courseCode')">Kurskod</button>
-        <button (click)="sortCourses('courseName')">Kursnamn</button>
-        <button (click)="sortCourses('points')">Poäng</button>
-        <button (click)="sortCourses('subject')">Ämne</button>
+        <article id="antal-traffar">
+            <p>Antal träffar: {{ filteredCourses.length }}</p>
+        </article>
     </section>
 
-    <div *ngFor="let course of filteredCourses">
-        <h3>{{ course.courseName }}</h3>
-        <p>{{ course.courseCode }}</p>
+    <section>
+        <h3>Hittade kurser</h3>
 
-        <button (click)="addCourse(course)">Lägg till</button>
-    </div>
+        <p *ngIf="message" class="success-message">{{ message }}</p>
+
+        <div *ngFor="let course of filteredCourses">
+            <h4>{{ course.courseName }}</h4>
+            <p>{{ course.courseCode }}</p>
+
+            <button (click)="addCourse(course)">Lägg till</button>
+        </div>
+    </section>
 </main>

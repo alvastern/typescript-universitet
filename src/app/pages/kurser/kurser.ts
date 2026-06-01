@@ -28,6 +28,7 @@ export class Kurser {
   searchTerm = '';
   selectedSubject = '';
   sortField = '';
+  message = '';
 
   // Hämtar kurser när komponenten initieras
   ngOnInit() {
@@ -45,6 +46,9 @@ export class Kurser {
   // Funktion för att lägga till en kurs i ramschemat
   addCourse(course: Course) {
     this.ramschemaService.addCourse(course);
+
+    // Meddelande som visas när en kurs läggs till
+    this.message = `Kursen ${course.courseName} har lagts till i ditt ramschemat.`;
   }
 
   // Get för att filtrera kurser baserat på sökterm

@@ -1,11 +1,15 @@
 <app-header></app-header>
 
-<h2>Totalt: {{ totalPoints }} hp</h2>
+<main>
+    <h2>Totalt: {{ totalPoints }} hp</h2>
 
-<div *ngFor="let course of courses">
-  <h3>{{ course.courseName }}</h3>
-  <p>{{ course.courseCode }}</p>
-  <p>{{ course.points }} hp</p>
+    <p *ngIf="message" class="success-message">{{ message }}</p>
 
-  <button (click)="removeCourse(course.courseCode)">Ta bort</button>
-</div>
+    <article *ngFor="let course of courses">
+        <h3>{{ course.courseName }}</h3>
+        <p>{{ course.courseCode }}</p>
+        <p>{{ course.points }} hp</p>
+
+        <button (click)="removeCourse(course)">Ta bort</button>
+    </article>
+</main>

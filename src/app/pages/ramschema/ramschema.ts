@@ -17,14 +17,19 @@ export class Ramschema {
 
   courses: Course[] = [];
 
+  message = '';
+
   ngOnInit() {
     this.courses = this.ramschemaService.getCourses();
   }
 
   // Funktion för att ta bort en kurs från ramschemat
-  removeCourse(courseCode: string) {
-    this.ramschemaService.removeCourse(courseCode);
+  removeCourse(course: Course) {
+    this.ramschemaService.removeCourse(course.courseCode);
     this.courses = this.ramschemaService.getCourses();
+
+    // Meddelande som visas när en kurs tas bort
+    this.message = `Kursen ${course.courseName} är borttagen från ramschemat`;
   }
 
   // Get för att beräkna den totala poängen i ramschemat
