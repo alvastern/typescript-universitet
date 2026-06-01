@@ -24,6 +24,8 @@ export class Kurser {
 
   courses: Course[] = [];
 
+  searchTerm = '';
+
   // Hämtar kurser när komponenten initieras
   ngOnInit() {
     this.courseService.getCourses().subscribe({
@@ -37,6 +39,7 @@ export class Kurser {
     });
   }
 
+  // Funktion för att lägga till en kurs i ramschemat
   addCourse(course: Course) {
     this.ramschemaService.addCourse(course);
   }

@@ -26,4 +26,12 @@ export class Ramschema {
     this.ramschemaService.removeCourse(courseCode);
     this.courses = this.ramschemaService.getCourses();
   }
+
+  // Get för att beräkna den totala poängen i ramschemat
+  get totalPoints() {
+    return this.courses.reduce(
+      (sum, course) => sum + course.points,
+      0
+    );
+  }
 }
