@@ -116,5 +116,42 @@ h2 {
 }
 
 @media (max-width: 1024px) {
+  main {
+    padding: 0 2rem 3rem;
+  }
 
+  h2 {
+    font-size: 3rem;
+  }
+
+  #rubrik-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #filter-container {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  #filter-container select {
+    width: 100%;
+  }
+
+  #filter-container input {
+    width: 90%;
+  }
+
+  #sortera-kurser button {
+    margin-bottom: 0.5rem;
+  }
+
+  .course-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .course-row button {
+    width: 100%;
+  }
 }

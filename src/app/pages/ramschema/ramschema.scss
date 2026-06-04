@@ -74,5 +74,28 @@ button:hover {
 }
 
 @media (max-width: 1024px) {
+    main {
+        padding: 2rem;
+    }
 
+    h2 {
+        font-size: 3rem;
+    }
+
+    #rubrik-flex {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .course-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .course-card button {
+        width: 100%;
+    }
 }
