@@ -115,6 +115,14 @@ h2 {
   margin-bottom: 1rem;
 }
 
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 @media (max-width: 1024px) {
   main {
     padding: 0 2rem 3rem;

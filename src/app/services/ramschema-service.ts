@@ -21,13 +21,16 @@ export class Ramschema {
   }
 
   // Funktion för att lägga till kurser i local storage
-  addCourse(course: Course) {
+  addCourse(course: Course): boolean {
     const courses = this.getCourses();
 
-    if (!courses.some(c => c.courseCode === course.courseCode)) {
-      courses.push(course);
-      this.saveCourses(courses);
+    if (courses.some(c => c.courseCode === course.courseCode)) {
+      return false;
     }
+
+    courses.push(course);
+    this.saveCourses(courses);
+    return true;
   }
 
   // Funktionn för att ta bort kurser från local storage

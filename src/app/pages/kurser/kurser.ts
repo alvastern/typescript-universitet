@@ -29,6 +29,7 @@ export class Kurser {
   selectedSubject = '';
   sortField = '';
   message = '';
+  messageType = '';
 
   // Hämtar kurser när komponenten initieras
   ngOnInit() {
@@ -45,10 +46,15 @@ export class Kurser {
 
   // Funktion för att lägga till en kurs i ramschemat
   addCourse(course: Course) {
-    this.ramschemaService.addCourse(course);
+    const added = this.ramschemaService.addCourse(course);
 
-    // Meddelande som visas när en kurs läggs till
-    this.message = `Kursen ${course.courseName} har lagts till i ditt ramschemat.`;
+    if (added) {
+      this.message = `${course.courseName} har lagts till i ramschemat.`;
+      this.messageType = 'success';
+    } else {
+      this.message = `${course.courseName} finns redan i ramschemat.`;
+      this.messageType = 'error';
+    }
   }
 
   // Get för att filtrera kurser baserat på sökterm

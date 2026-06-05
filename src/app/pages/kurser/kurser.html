@@ -34,7 +34,7 @@
   <section id="course-list">
     <h3>Hittade kurser</h3>
 
-    <p *ngIf="message" class="success-message">
+    <p *ngIf="message" [class]="messageType === 'success' ? 'success-message' : 'error-message'">
       {{ message }}
     </p>
 
