@@ -3,5 +3,7 @@ Detta är en projektuppgift i kursen Programmering i TypeScript som har gått ut
 
 Det finns en andra undersida som innehållet ett personligt ramschema för studenterna. I detta ramschema kan användare lägga till kurser från kurs-listan, se det totala antalet högskolepoäng, samt ta bort kurser från kurslistan.
 
+I denna projektuppgift har jag valt att endast fokusera på grundkraven. 
+
 ## Länk till webbapplikation
 https://typescript-universitet.netlify.app/
